@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe "user visits /teachers/new" do
   it "the teacher can create an account" do
-    visit '/teachers/new'
+    visit new_teacher_path
+
     fill_in("teacher[name]", with: "Courtney Meyerhofer")
     fill_in("teacher[department]", with: "Science")
     fill_in("teacher[username]", with: "cm")

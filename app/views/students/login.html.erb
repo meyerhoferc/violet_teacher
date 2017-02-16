@@ -1,0 +1,11 @@
+<h1>Student Login</h1>
+
+<%= form_for(:session, url: login_student_path) do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.submit "login" %>
+<% end %>
