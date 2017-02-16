@@ -31,6 +31,20 @@ class StudentsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @student = current_student
+    if @student.update(student_params)
+      flash[:success] = "Information Updated"
+      redirect_to student_path(current_student)
+    else
+      flash[:danger] = "Invalid Information"
+      render :edit
+    end
+  end
+
   private
 
   def student_params
