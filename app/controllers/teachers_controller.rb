@@ -45,6 +45,11 @@ class TeachersController < ApplicationController
     end
   end
 
+  def destroy
+    current_teacher.destroy
+    redirect_to new_teacher_path
+  end
+
   private
 
   def teacher_params
