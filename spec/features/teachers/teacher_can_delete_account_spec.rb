@@ -9,5 +9,8 @@ describe "teacher can delete account" do
     click_on("Delete Account")
 
     expect(current_path).to eq(new_teacher_path)
+    within(".flash_danger") do
+      expect(page).to have_content("Account Deleted")
+    end
   end
 end

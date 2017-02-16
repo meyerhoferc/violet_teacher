@@ -45,6 +45,12 @@ class StudentsController < ApplicationController
     end
   end
 
+  def destroy
+    current_student.destroy
+    flash[:danger] = "Account Deleted"
+    redirect_to new_student_path
+  end
+
   private
 
   def student_params

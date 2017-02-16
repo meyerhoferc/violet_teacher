@@ -3,3 +3,4 @@
   <p>Grade: <%= current_student.grade %></p>
 </div>
 <%= link_to "Edit", edit_student_path(current_student) %>
+<%= link_to "Delete Account", student_path(current_student), method: :delete %>
