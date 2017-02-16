@@ -1,0 +1,20 @@
+<h1>Edit Your Information</h1>
+
+<%= form_for(current_teacher) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br />
+
+  <%= f.label :department %>
+  <%= f.text_field :department %><br />
+
+  <%= f.label :username %>
+  <%= f.text_field :username %><br />
+
+  <%= f.label :password %>
+  <%= f.password_field :password %><br />
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %><br />
+
+  <%= f.submit "Update Information" %>
+<% end %>

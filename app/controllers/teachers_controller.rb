@@ -31,6 +31,20 @@ class TeachersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @teacher = current_teacher
+    if @teacher.update(teacher_params)
+      flash[:success] = "Information Updated"
+      redirect_to teacher_path(current_teacher)
+    else
+      flash[:danger] = "Invalid Information"
+      render :edit
+    end
+  end
+
   private
 
   def teacher_params
