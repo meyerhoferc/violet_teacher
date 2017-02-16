@@ -51,6 +51,12 @@ class TeachersController < ApplicationController
     redirect_to new_teacher_path
   end
 
+  def logout
+    session.clear
+    flash[:notice] = "Logged Out"
+    redirect_to login_teacher_path
+  end
+
   private
 
   def teacher_params

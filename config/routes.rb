@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   get 'login-teacher', to: "teachers#login"
   post 'login-teacher', to: "teachers#validate_login"
+  get 'logout-teacher', to: "teachers#logout"
 
   get 'login-student', to: "students#login"
   post 'login-student', to: "students#validate_login"
+
 end
