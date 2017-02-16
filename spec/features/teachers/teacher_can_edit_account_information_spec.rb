@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature "teacher edits account" do
-  describe "when a teacher clicks 'edit' from their show" do
+  xdescribe "when a teacher clicks 'edit' from their show" do
     it "they submit a form with updated information" do
       teacher = Teacher.create(name: "Courtney", department: "physics", username: "c", password: "pass")
        # login teacher

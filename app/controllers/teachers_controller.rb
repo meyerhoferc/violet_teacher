@@ -6,14 +6,29 @@ class TeachersController < ApplicationController
   def create
     @teacher = Teacher.new(teacher_params)
     if @teacher.save
-      redirect_to teacher_path(@teacher)
+      session[:teacher_id] = @teacher.id
+      redirect_to teacher_path(current_teacher)
     else
       render :new
     end
   end
 
   def show
-    @teacher = Teacher.find(params[:id])
+    @teacher = current_teacher
+  end
+
+  def login
+  end
+
+  def validate_login
+    @teacher = Teacher.find_by(username: params[:session][:username])
+    if @teacher && @teacher.authenticate(params[:session][:password])
+      session[:teacher_id] = @teacher.id
+      redirect_to teacher_path(current_teacher)
+    else
+      flash[:danger] = "Invalid Login Credentials"
+      render :login
+    end
   end
 
   private
