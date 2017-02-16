@@ -8,5 +8,6 @@ Rails.application.routes.draw do
 
   get 'login-student', to: "students#login"
   post 'login-student', to: "students#validate_login"
+  get 'logout-student', to: "students#logout"
 
 end
