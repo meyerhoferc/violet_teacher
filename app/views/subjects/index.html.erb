@@ -1,0 +1,4 @@
+<h1>All Subjects</h1>
+<%  @subjects.each do |subject| %>
+  <%= link_to subject.name, subject_path(subject) %>
+<% end %>
