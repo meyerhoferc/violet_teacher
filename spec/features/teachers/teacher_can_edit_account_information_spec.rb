@@ -17,7 +17,7 @@ feature "teacher edits account" do
      click_on("Update Information")
 
      expect(current_path).to eq(teacher_path(teacher))
-     within("h3") do
+     within("h1") do
        expect(page).to have_content("Welcome, Kurt")
      end
      within(".my_information") do
