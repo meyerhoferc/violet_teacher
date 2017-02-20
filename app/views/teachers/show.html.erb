@@ -1,7 +1,16 @@
-<h3>Welcome, <%= current_teacher.name %></h3>
+<h1>Welcome, <%= current_teacher.name %></h1>
 
 <div class="my_information">
   Department: <%= current_teacher.department %>
+</div>
+
+<div class="courses">
+  <h3>My Courses</h3>
+  <% current_teacher.courses.each do |course| %>
+    <ul>
+      <%= link_to course.title, course_path(course) %>
+    </ul>
+  <% end %>
 </div>
 
 <%= link_to "Edit", edit_teacher_path(current_teacher) %>

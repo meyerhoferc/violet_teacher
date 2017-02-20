@@ -11,7 +11,7 @@ feature "teacher can login" do
     click_on("login")
 
     expect(current_path).to eq(teacher_path(teacher))
-    within("h3") do
+    within("h1") do
       expect(page).to have_content("Welcome, C")
     end
     within(".my_information") do
