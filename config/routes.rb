@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :teachers, only: [:new, :create, :show, :edit, :update, :destroy] do
-    resources :courses
+    resources :courses do
+      resources :assignments, only: [:new, :create, :show]
+    end
   end
 
   resources :students, only: [:new, :create, :show, :edit, :update, :destroy]

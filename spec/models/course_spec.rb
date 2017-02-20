@@ -7,4 +7,5 @@ RSpec.describe Course, type: :model do
   it { should validate_presence_of(:location) }
   it { should belong_to(:subject) }
   it { should belong_to(:teacher) }
+  it { should have_many(:assignments) }
 end
