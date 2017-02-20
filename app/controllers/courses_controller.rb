@@ -12,8 +12,8 @@ class CoursesController < ApplicationController
       flash[:success] = "Course created successfully"
       redirect_to course_path(@course)
     else
-      flash[:danger] = "Course not created successfully!"
-      # render :new
+      flash[:danger] = "Course not created!"
+      render :new
     end
   end
 

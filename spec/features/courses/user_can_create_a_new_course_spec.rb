@@ -31,3 +31,17 @@ describe "user can create a new course" do
     end
   end
 end
+
+describe "user cannot create a new course" do
+  it "when giving incomplete information" do
+    visit new_course_path
+    fill_in("course[title]", with: "Physics")
+    fill_in("course[description]", with: "learn fun things")
+    fill_in("course[location]", with: "B100")
+    click_on("Create Course")
+
+    within(".flash_danger") do
+      expect(page).to have_content("Course not created!")
+    end
+  end
+end
