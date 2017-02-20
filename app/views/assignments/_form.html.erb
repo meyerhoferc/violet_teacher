@@ -1,0 +1,9 @@
+<%= form_for([current_teacher, @course, @assignment]) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %><br>
+
+  <%= f.label :point_value %>
+  <%= f.text_field :point_value %><br>
+
+  <%= f.submit %>
+<% end %>

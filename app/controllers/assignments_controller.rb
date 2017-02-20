@@ -18,7 +18,25 @@ class AssignmentsController < ApplicationController
   end
 
   def show
+    @course = Course.find(params[:course_id])
     @assignment = Assignment.find(params[:id])
+  end
+
+  def edit
+    @assignment = Assignment.find(params[:id])
+    @course = Course.find(params[:course_id])
+  end
+
+  def update
+    @assignment = Assignment.find(params[:id])
+    @course = Course.find(params[:course_id])
+    if @assignment.update(assignment_params)
+      flash[:success] = "Assignment updated"
+      redirect_to teacher_course_assignment_path(current_teacher, @course, @assignment)
+    else
+      flash[:danger] = "Assignment not updated"
+      render :edit
+    end
   end
 
   private

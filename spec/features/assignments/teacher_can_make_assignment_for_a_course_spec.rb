@@ -25,7 +25,7 @@ describe "teacher can make assignment for a course" do
     end
 
     within("h3") do
-      expect(page).to have_content("50 points")
+      expect(page).to have_content("50 Points")
     end
   end
 end
