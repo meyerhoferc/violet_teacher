@@ -1,0 +1,9 @@
+<h1>All Assignments for <%= @course.title %></h1>
+<div class="assignments">
+  <% @course.assignments.each do |assignment| %>
+    <ul>
+      <%= link_to assignment.title, teacher_course_assignment_path(current_teacher, @course, assignment) %><br>
+      <%= assignment.point_value %> Points
+    </ul>
+  <% end %>
+</div>

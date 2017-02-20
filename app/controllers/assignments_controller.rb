@@ -22,6 +22,11 @@ class AssignmentsController < ApplicationController
     @assignment = Assignment.find(params[:id])
   end
 
+  def index
+    @course = Course.find(params[:course_id])
+    @assignments = Assignment.find_by(course: @course)
+  end
+
   def edit
     @assignment = Assignment.find(params[:id])
     @course = Course.find(params[:course_id])
