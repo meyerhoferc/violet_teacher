@@ -4,13 +4,20 @@
 </div>
 <div class="my_courses">
   <% current_student.courses.each do |course| %>
-    <ul>
+    <ul "<%= course.title %>">
       <p>Course: <%= course.title %></p>
-      <p>Teacher: <%= course.teacher %></p>
+      <p>Teacher: <%= course.teacher.name %></p>
       <p>Location: <%= course.location %></p>
+      <h3>Assignments</h3>
+      <div class="my_assignments">
+        <% course.assignments.each do |assignment| %>
+          <p><%= assignment.title %>: <%= assignment.point_value %> Points</p>
+        <% end %>
+      </div>
     </ul>
   <% end %>
 </div>
+
 <%= link_to "Edit", edit_student_path(current_student) %>
 <%= link_to "Delete Account", student_path(current_student), method: :delete %>
 <%= link_to "Log Out",  logout_student_path %>
