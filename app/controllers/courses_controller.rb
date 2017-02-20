@@ -4,10 +4,7 @@ class CoursesController < ApplicationController
   end
 
   def create
-    teacher = Teacher.find_by(name: params[:course][:teacher])
-    subject = Subject.find_by(name: params[:course][:subject])
     @course = Course.new(course_params)
-    @course.update_attributes(teacher: teacher, subject: subject)
     if @course.save
       flash[:success] = "Course created successfully"
       redirect_to course_path(@course)
@@ -21,9 +18,20 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
   end
 
+  def edit
+    @course = Course.find(params[:id])
+  end
+
+  def update
+    @course = Course.find(params[:id])
+    @course.update(course_params)
+    flash[:success] = "Course updated successfully"
+    redirect_to course_path(@course)
+  end
+
   private
 
   def course_params
-    params.require(:course).permit(:title, :description, :location)
+    params.require(:course).permit(:title, :description, :location, :teacher_id, :subject_id)
   end
 end

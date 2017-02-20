@@ -2,15 +2,15 @@ require 'rails_helper'
 
 describe "user can create a new course" do
   it "by filling out form" do
-    visit new_course_path
     Subject.create!(name: "science")
     Teacher.create!(name: "Courtney", department: "science", username: "c", password: "pass")
 
-    fill_in("course[subject]", with: "science")
+    visit new_course_path
+    select("science", from: "course[subject_id]")
     fill_in("course[title]", with: "Physics")
     fill_in("course[description]", with: "learn fun things")
     fill_in("course[location]", with: "B100")
-    fill_in("course[teacher]", with: "Courtney")
+    select("Courtney", from: "course[teacher_id]")
     click_on("Create Course")
 
     course = Course.last

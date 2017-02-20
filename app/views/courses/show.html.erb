@@ -5,3 +5,5 @@
   <p>Location: <%= @course.location %></p>
   <p>Teacher: <%= @course.teacher.name %></p>
 </nav>
+
+<%= link_to "Edit", edit_course_path(@course) %>
