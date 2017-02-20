@@ -4,6 +4,7 @@
     <ul>
       <%= link_to assignment.title, teacher_course_assignment_path(current_teacher, @course, assignment) %><br>
       <%= assignment.point_value %> Points
+      <%= link_to 'Delete', teacher_course_assignment_path(current_teacher, @course, assignment), method: :delete %>
     </ul>
   <% end %>
 </div>

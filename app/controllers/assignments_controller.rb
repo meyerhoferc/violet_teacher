@@ -44,6 +44,14 @@ class AssignmentsController < ApplicationController
     end
   end
 
+  def destroy
+    @course = Course.find(params[:course_id])
+    @assignment = Assignment.find(params[:id])
+    @assignment.destroy
+    flash[:success] = "Assignment deleted"
+    redirect_to teacher_course_assignments_path(current_teacher, @course)
+  end
+
   private
 
   def assignment_params
