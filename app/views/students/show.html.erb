@@ -2,6 +2,13 @@
 <div class="my_information">
   <p>Grade: <%= current_student.grade %></p>
 </div>
+<div class="my_courses">
+  <% current_student.courses.each do |course| %>
+    <ul>
+      <%= link_to course.title, course_path(course) %>
+    </ul>
+  <% end %>
+</div>
 <%= link_to "Edit", edit_student_path(current_student) %>
 <%= link_to "Delete Account", student_path(current_student), method: :delete %>
 <%= link_to "Log Out",  logout_student_path %>

@@ -1,5 +1,6 @@
 <h1>Sign Up for a Course</h1>
 <%= form_for(@enrollment) do |f| %>
   <%= f.label :course %>
-  <%= f.collection_select(:course_id, Course.all, :id, :title) %>
+  <%= f.collection_select(:course_id, Course.all, :id, :title, {prompt: "Select Course"}) %><br>
+  <%= f.submit "Enroll" %>
 <% end %>

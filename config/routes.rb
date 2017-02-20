@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :students, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :subjects
   resources :courses
-  resources :enrollments, only: [:new]
+  resources :enrollments, only: [:new, :create]
 
   get 'login-teacher', to: "teachers#login"
   post 'login-teacher', to: "teachers#validate_login"

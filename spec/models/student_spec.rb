@@ -7,5 +7,6 @@ RSpec.describe Student, type: :model do
   it { should validate_presence_of(:password) }
   it { should validate_presence_of(:grade) }
   it { should have_many(:enrollments) }
+  it { should have_many(:courses).through(:enrollments) }
   it { should have_secure_password }
 end
