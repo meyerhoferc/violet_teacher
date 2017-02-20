@@ -1,5 +1,10 @@
 <h1>Subject: <%= @subject.name %></h1>
-<div class="classes">
-  <h3>All Classes for this Subject</h3>
+<div class="courses">
+  <h3>All Courses for this Subject</h3>
+  <% @subject.courses.each do |course| %>
+    <ul>
+      <%= link_to course.title, course_path(course) %>
+    </ul>
+  <% end %>
 </div>
 <%= link_to "Delete", subject_path(@subject), method: :delete %>

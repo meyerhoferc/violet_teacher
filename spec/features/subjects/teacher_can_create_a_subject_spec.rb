@@ -15,13 +15,13 @@ describe "logged in teacher visits /subjects/new" do
     within(".flash_success") do
       expect(page).to have_content("Subject created successfully")
     end
-    
+
     within("h1") do
       expect(page).to have_content("Subject: Physics")
     end
 
-    within(".classes h3") do
-      expect(page).to have_content("All Classes for this Subject")
+    within(".courses h3") do
+      expect(page).to have_content("All Courses for this Subject")
     end
   end
 end
