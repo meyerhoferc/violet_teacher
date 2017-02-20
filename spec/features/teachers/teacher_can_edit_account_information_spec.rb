@@ -7,7 +7,7 @@ feature "teacher edits account" do
       allow_any_instance_of(ApplicationController).to receive(:current_teacher).and_return(teacher)
 
       visit teacher_path(teacher)
-    
+
      click_on("Edit")
 
      expect(current_path).to eq(edit_teacher_path(teacher))
