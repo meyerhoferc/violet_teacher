@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :teachers, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :students, only: [:new, :create, :show, :edit, :update, :destroy]
-  resources :subjects, only: [:new, :create, :show, :index]
+  resources :subjects, only: [:new, :create, :show, :index, :edit, :update]
 
   get 'login-teacher', to: "teachers#login"
   post 'login-teacher', to: "teachers#validate_login"
