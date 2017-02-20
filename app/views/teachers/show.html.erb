@@ -8,7 +8,7 @@
   <h3>My Courses</h3>
   <% current_teacher.courses.each do |course| %>
     <ul>
-      <%= link_to course.title, course_path(course) %>
+      <%= link_to course.title, teacher_course_path(current_teacher, course) %>
     </ul>
   <% end %>
 </div>

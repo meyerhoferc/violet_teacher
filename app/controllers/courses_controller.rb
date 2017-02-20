@@ -5,9 +5,10 @@ class CoursesController < ApplicationController
 
   def create
     @course = Course.new(course_params)
+    @course.update_attributes(teacher: current_teacher)
     if @course.save
       flash[:success] = "Course created successfully"
-      redirect_to course_path(@course)
+      redirect_to teacher_course_path(current_teacher, @course)
     else
       flash[:danger] = "Course not created!"
       render :new
@@ -30,14 +31,14 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     @course.update(course_params)
     flash[:success] = "Course updated successfully"
-    redirect_to course_path(@course)
+    redirect_to teacher_course_path(current_teacher, @course)
   end
 
   def destroy
     @course = Course.find(params[:id])
     @course.destroy
     flash[:success] = "Course deleted successfully"
-    redirect_to courses_path
+    redirect_to teacher_courses_path(current_teacher)
   end
 
   private

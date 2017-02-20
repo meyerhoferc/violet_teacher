@@ -6,5 +6,5 @@
   <p>Teacher: <%= @course.teacher.name %></p>
 </nav>
 
-<%= link_to "Edit", edit_course_path(@course) %>
-<%= link_to "Delete", course_path(@course), method: :delete %>
+<%= link_to "Edit", edit_teacher_course_path(current_teacher, @course) %>
+<%= link_to "Delete", teacher_course_path(current_teacher, @course), method: :delete %>

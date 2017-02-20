@@ -8,7 +8,7 @@ describe "on a teacher's show page" do
     Course.create!(title: "biology", description: "fun living things", location: "b100", teacher: teacher, subject: subject)
     Course.create!(title: "chemistry", description: "fun chemicals", location: "b100", teacher: teacher, subject: subject)
     allow_any_instance_of(ApplicationController).to receive(:current_teacher).and_return(teacher)
-    
+
     visit teacher_path(teacher)
 
     within(".courses h3") do
@@ -23,6 +23,6 @@ describe "on a teacher's show page" do
 
     click_on "chemistry"
 
-    expect(current_path).to eq(course_path(Course.last))
+    expect(current_path).to eq(teacher_course_path(teacher, Course.last))
   end
 end

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  resources :teachers, only: [:new, :create, :show, :edit, :update, :destroy]
+  resources :teachers, only: [:new, :create, :show, :edit, :update, :destroy] do
+    resources :courses
+  end
+
   resources :students, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :subjects
-  resources :courses
   resources :enrollments, only: [:new, :create]
 
   get 'login-teacher', to: "teachers#login"

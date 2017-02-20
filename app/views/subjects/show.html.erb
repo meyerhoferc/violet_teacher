@@ -3,7 +3,8 @@
   <h3>All Courses for this Subject</h3>
   <% @subject.courses.each do |course| %>
     <ul>
-      <%= link_to course.title, course_path(course) %>
+      <p>Course: <%= course.title %></p>
+      <p>Teacher: <%= course.teacher %></p>
     </ul>
   <% end %>
 </div>

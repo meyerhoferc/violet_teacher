@@ -1,7 +1,14 @@
-<h1>All Courses</h1>
+<h1>My Courses</h1>
 <% @courses.each do |course| %>
-  <div class="courses_<%= course.title %>">
-    Title: <%= link_to course.title, course_path(course) %><br>
-    Teacher: <%= link_to course.teacher.name, teacher_path(course.teacher) %>
+  <div class="course_<%= course.title %>">
+    <p>Title: <%= link_to course.title, teacher_course_path(current_teacher, course) %></p>
+    <p>Enrollment: <%= course.enrollments.count %> students</p>
+    <p>Location: <%= course.location %></p>
+    <div class="students">
+      <h3>All Students</h3>
+      <% course.students.each do |student| %>
+        <p><%= student.name %></p>
+      <% end %>
+    </div>
   </div>
 <% end %>

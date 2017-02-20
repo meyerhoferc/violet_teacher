@@ -11,12 +11,9 @@ describe "when a user visits /subjects/:id" do
     visit subject_path(subject)
 
     within(".courses") do
-      expect(page).to have_link("physics")
-      expect(page).to have_link("biology")
-      expect(page).to have_link("chemistry")
+      expect(page).to have_content("physics")
+      expect(page).to have_content("biology")
+      expect(page).to have_content("chemistry")
     end
-
-    click_on "chemistry"
-    expect(current_path).to eq(course_path(Course.last))
   end
 end

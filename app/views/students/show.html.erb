@@ -5,7 +5,9 @@
 <div class="my_courses">
   <% current_student.courses.each do |course| %>
     <ul>
-      <%= link_to course.title, course_path(course) %>
+      <p>Course: <%= course.title %></p>
+      <p>Teacher: <%= course.teacher %></p>
+      <p>Location: <%= course.location %></p>
     </ul>
   <% end %>
 </div>

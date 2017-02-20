@@ -3,18 +3,18 @@ require 'rails_helper'
 describe "user can create a new course" do
   it "by filling out form" do
     Subject.create!(name: "science")
-    Teacher.create!(name: "Courtney", department: "science", username: "c", password: "pass")
+    teacher = Teacher.create!(name: "Courtney", department: "science", username: "c", password: "pass")
+    allow_any_instance_of(ApplicationController).to receive(:current_teacher).and_return(teacher)
 
-    visit new_course_path
+    visit new_teacher_course_path(teacher)
     select("science", from: "course[subject_id]")
     fill_in("course[title]", with: "Physics")
     fill_in("course[description]", with: "learn fun things")
     fill_in("course[location]", with: "B100")
-    select("Courtney", from: "course[teacher_id]")
     click_on("Create Course")
 
     course = Course.last
-    expect(current_path).to eq(course_path(course.id))
+    expect(current_path).to eq(teacher_course_path(teacher, course))
 
     within(".flash_success") do
       expect(page).to have_content("Course created successfully")
@@ -34,7 +34,11 @@ end
 
 describe "user cannot create a new course" do
   it "when giving incomplete information" do
-    visit new_course_path
+    teacher = Teacher.create!(name: "Courtney", department: "science", username: "c", password: "pass")
+    allow_any_instance_of(ApplicationController).to receive(:current_teacher).and_return(teacher)
+    
+    visit new_teacher_course_path(teacher)
+
     fill_in("course[title]", with: "Physics")
     fill_in("course[description]", with: "learn fun things")
     fill_in("course[location]", with: "B100")

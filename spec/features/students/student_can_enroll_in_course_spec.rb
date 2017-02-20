@@ -22,12 +22,8 @@ describe "a student can sign up for a course" do
     expect(current_path).to eq(student_path(student))
 
     within(".my_courses") do
-      expect(page).to have_link("physics")
+      expect(page).to have_content("physics")
     end
-
-    click_on "physics"
-
-    expect(current_path).to eq(course_path(Course.last))
   end
 
   it "when not logged in" do
