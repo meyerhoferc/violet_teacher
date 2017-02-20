@@ -1,0 +1,19 @@
+<h1>Create a New Course</h1>
+<%= form_for(@course) do |f| %>
+  <%= f.label :subject %>
+  <%= f.text_field :subject %><br>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %><br>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %><br>
+
+  <%= f.label :location %>
+  <%= f.text_field :location %><br>
+
+  <%= f.label :teacher %>
+  <%= f.text_field :teacher %><br>
+
+  <%= f.submit "Create Course" %>
+<% end %>
