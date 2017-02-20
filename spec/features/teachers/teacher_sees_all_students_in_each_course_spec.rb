@@ -12,7 +12,7 @@ describe "teacher sees goes to /my_courses" do
     allow_any_instance_of(ApplicationController).to receive(:current_teacher).and_return(teacher)
 
     visit teacher_courses_path(teacher)
-    save_and_open_page
+
     within("h1") do
       expect(page).to have_content("My Courses")
     end
