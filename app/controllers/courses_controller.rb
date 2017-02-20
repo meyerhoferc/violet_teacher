@@ -18,6 +18,10 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
   end
 
+  def index
+    @courses = Course.all
+  end
+
   def edit
     @course = Course.find(params[:id])
   end

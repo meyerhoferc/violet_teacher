@@ -1,0 +1,7 @@
+<h1>All Courses</h1>
+<% @courses.each do |course| %>
+  <div class="courses_<%= course.title %>">
+    Title: <%= link_to course.title, course_path(course) %><br>
+    Teacher: <%= link_to course.teacher.name, teacher_path(course.teacher) %>
+  </div>
+<% end %>
