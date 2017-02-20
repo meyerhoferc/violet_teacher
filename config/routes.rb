@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: "violet#main"
   resources :teachers, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :courses do
       resources :assignments, only: [:new, :create, :show, :edit, :update, :index, :destroy]
