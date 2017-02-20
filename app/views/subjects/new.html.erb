@@ -1,7 +1,2 @@
 <h1>Add a New Subject</h1>
-<%= form_for(@subject) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.submit "Create Subject" %>
-<% end %>
+<%= render partial: 'form' %>
