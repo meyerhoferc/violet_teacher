@@ -18,6 +18,8 @@
 
     <% if current_teacher %>
       <%= render partial: 'layouts/teachernavbar' %>
+    <% elsif current_student %>
+      <%= render partial: 'layouts/studentnavbar' %>
     <% end %>
 
     <% flash.each do |tag, message| %>
