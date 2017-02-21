@@ -41,6 +41,7 @@ group :development, :test do
   gem 'launchy'
   gem 'database_cleaner'
   gem 'shoulda-matchers', '~> 3.0'
+  gem 'faker'
 end
 
 group :development do

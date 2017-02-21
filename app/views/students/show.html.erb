@@ -5,10 +5,10 @@
 <div class="my_courses">
   <% current_student.courses.each do |course| %>
     <ul "<%= course.title %>">
-      <p>Course: <%= course.title %></p>
+      <h4>Course: <%= course.title %></h4>
       <p>Teacher: <%= course.teacher.name %></p>
       <p>Location: <%= course.location %></p>
-      <h3>Assignments</h3>
+      <strong><p>Assignments</p></strong>
       <div class="my_assignments">
         <% course.assignments.each do |assignment| %>
           <p><%= assignment.title %>: <%= assignment.point_value %> Points</p>
