@@ -1,6 +1,7 @@
 ## Welcome to Violet Teacher
 
-To get started clone this down:
+To get started:
+
 `git clone https://github.com/meyerhoferc/violet_teacher.git`
 
 `bundle install`
