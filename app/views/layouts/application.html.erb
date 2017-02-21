@@ -16,6 +16,10 @@
 
   <body>
 
+    <% if current_teacher %>
+      <%= render partial: 'layouts/teachernavbar' %>
+    <% end %>
+
     <% flash.each do |tag, message| %>
     <div class="flash_<%= tag %>">
       <%= message %>

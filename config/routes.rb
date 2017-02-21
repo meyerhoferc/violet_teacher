@@ -10,11 +10,11 @@ Rails.application.routes.draw do
   resources :subjects
   resources :enrollments, only: [:new, :create]
 
-  get 'login-teacher', to: "teachers#login"
-  post 'login-teacher', to: "teachers#validate_login"
-  get 'logout-teacher', to: "teachers#logout"
+  get 'login-teacher', to: "sessions#teacher_login"
+  post 'login-teacher', to: "sessions#teacher_validate_login"
+  get 'logout-teacher', to: "sessions#teacher_logout"
 
-  get 'login-student', to: "students#login"
-  post 'login-student', to: "students#validate_login"
-  get 'logout-student', to: "students#logout"
+  get 'login-student', to: "sessions#student_login"
+  post 'login-student', to: "sessions#student_validate_login"
+  get 'logout-student', to: "sessions#student_logout"
 end

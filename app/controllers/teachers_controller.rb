@@ -1,4 +1,7 @@
 class TeachersController < ApplicationController
+  before_action :authorized_teacher_access?
+  skip_before_action :authorized_teacher_access?, only: [:new, :create]
+
   def new
     @teacher = Teacher.new
   end
@@ -15,20 +18,6 @@ class TeachersController < ApplicationController
 
   def show
     @teacher = current_teacher
-  end
-
-  def login
-  end
-
-  def validate_login
-    @teacher = Teacher.find_by(username: params[:session][:username])
-    if @teacher && @teacher.authenticate(params[:session][:password])
-      session[:teacher_id] = @teacher.id
-      redirect_to teacher_path(current_teacher)
-    else
-      flash[:danger] = "Invalid Login Credentials"
-      render :login
-    end
   end
 
   def edit
@@ -49,12 +38,6 @@ class TeachersController < ApplicationController
     current_teacher.destroy
     flash[:danger] = "Account Deleted"
     redirect_to new_teacher_path
-  end
-
-  def logout
-    session.clear
-    flash[:notice] = "Logged Out"
-    redirect_to login_teacher_path
   end
 
   private
