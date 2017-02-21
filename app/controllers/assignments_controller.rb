@@ -1,11 +1,12 @@
 class AssignmentsController < ApplicationController
+  before_action :set_course
+  before_action :set_assignment, except: [:new, :create, :index]
+
   def new
-    @course = Course.find(params[:course_id])
     @assignment = Assignment.new
   end
 
   def create
-    @course = Course.find(params[:course_id])
     @assignment = Assignment.new(assignment_params)
     @assignment.update_attributes(course: @course)
     if @assignment.save
@@ -18,23 +19,16 @@ class AssignmentsController < ApplicationController
   end
 
   def show
-    @course = Course.find(params[:course_id])
-    @assignment = Assignment.find(params[:id])
   end
 
   def index
-    @course = Course.find(params[:course_id])
     @assignments = Assignment.find_by(course: @course)
   end
 
   def edit
-    @assignment = Assignment.find(params[:id])
-    @course = Course.find(params[:course_id])
   end
 
   def update
-    @assignment = Assignment.find(params[:id])
-    @course = Course.find(params[:course_id])
     if @assignment.update(assignment_params)
       flash[:success] = "Assignment updated"
       redirect_to teacher_course_assignment_path(current_teacher, @course, @assignment)
@@ -45,8 +39,6 @@ class AssignmentsController < ApplicationController
   end
 
   def destroy
-    @course = Course.find(params[:course_id])
-    @assignment = Assignment.find(params[:id])
     @assignment.destroy
     flash[:success] = "Assignment deleted"
     redirect_to teacher_course_assignments_path(current_teacher, @course)
@@ -56,5 +48,13 @@ class AssignmentsController < ApplicationController
 
   def assignment_params
     params.require(:assignment).permit(:title, :point_value, :course_id, :teacher_id)
+  end
+
+  def set_course
+    @course = Course.find(params[:course_id])
+  end
+
+  def set_assignment
+    @assignment = Assignment.find(params[:id])
   end
 end

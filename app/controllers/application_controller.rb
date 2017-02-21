@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_teacher
-  helper_method :current_student
-  helper_method :authorized_teacher_access?
-  helper_method :authorized_student_access?
+  helper_method :current_teacher,
+                :current_student,
+                :authorized_teacher_access?,
+                :authorized_student_access?
 
   def current_teacher
     @teacher ||= Teacher.find(session[:teacher_id]) if session[:teacher_id]

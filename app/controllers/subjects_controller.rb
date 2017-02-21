@@ -1,4 +1,6 @@
 class SubjectsController < ApplicationController
+  before_action :set_subject, only: [:show, :edit, :update, :destroy]
+
   def new
     @subject = Subject.new
   end
@@ -15,7 +17,6 @@ class SubjectsController < ApplicationController
   end
 
   def show
-    @subject = Subject.find(params[:id])
   end
 
   def index
@@ -23,11 +24,9 @@ class SubjectsController < ApplicationController
   end
 
   def edit
-    @subject = Subject.find(params[:id])
   end
 
   def update
-    @subject = Subject.find(params[:id])
     if @subject.update(subject_params)
       flash[:success] = "Information Updated"
       redirect_to subject_path(@subject)
@@ -38,7 +37,6 @@ class SubjectsController < ApplicationController
   end
 
   def destroy
-    @subject = Subject.find(params[:id])
     @subject.destroy
     flash[:danger] = "Subject Deleted"
     redirect_to subjects_path
@@ -48,5 +46,9 @@ class SubjectsController < ApplicationController
 
   def subject_params
     params.require(:subject).permit(:name)
+  end
+
+  def set_subject
+    @subject = Subject.find(params[:id])
   end
 end
