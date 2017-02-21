@@ -2,6 +2,7 @@
 
 To get started clone this down:
 `git clone https://github.com/meyerhoferc/violet_teacher.git`
+
 `bundle install`
 
 ### To play in the application
@@ -21,6 +22,7 @@ In your browser: `127.0.0.1:3000`
 * username: root
 * password: toor
 
-#### To run the test suite
+### To run the test suite
 `rake db:test:prepare`
+
 `rspec`
