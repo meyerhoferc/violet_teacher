@@ -21,4 +21,14 @@ describe "when a user goes to /" do
       expect(page).to have_link("Student Sign Up")
     end
   end
+
+  it "they see a navbar" do
+    visit root_path
+    
+    within(".navbar") do
+      expect(page).to have_link("All Courses")
+      expect(page).to have_link("About Our School")
+      expect(page).to have_link("Faculty")
+    end
+  end
 end

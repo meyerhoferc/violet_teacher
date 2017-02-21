@@ -1,6 +1,6 @@
 class TeachersController < ApplicationController
   before_action :authorized_teacher_access?
-  skip_before_action :authorized_teacher_access?, only: [:new, :create]
+  skip_before_action :authorized_teacher_access?, only: [:new, :create, :index]
 
   def new
     @teacher = Teacher.new
@@ -18,6 +18,10 @@ class TeachersController < ApplicationController
 
   def show
     @teacher = current_teacher
+  end
+
+  def index
+    @teachers = Teacher.all
   end
 
   def edit

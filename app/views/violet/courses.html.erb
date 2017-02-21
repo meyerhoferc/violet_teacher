@@ -1,0 +1,7 @@
+<h1>All Courses</h1>
+<% @courses.each do |course| %>
+  <ul>
+    <%= course.title %> (<%= course.subject.name %>)
+    Teacher: <%= course.teacher.name %>
+  </ul>
+<% end %>

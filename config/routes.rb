@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: "violet#main"
-  resources :teachers, only: [:new, :create, :show, :edit, :update, :destroy] do
+  resources :teachers, only: [:new, :create, :show, :edit, :update, :destroy, :index] do
     resources :courses do
       resources :assignments, only: [:new, :create, :show, :edit, :update, :index, :destroy]
     end
@@ -17,4 +17,7 @@ Rails.application.routes.draw do
   get 'login-student', to: "sessions#student_login"
   post 'login-student', to: "sessions#student_validate_login"
   get 'logout-student', to: "sessions#student_logout"
+
+  get 'courses', to: "violet#courses"
+  get 'about', to: "violet#about"
 end
