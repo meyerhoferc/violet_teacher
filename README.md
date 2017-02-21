@@ -1,24 +1,26 @@
-# README
+## Welcome to Violet Teacher
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To get started clone this down:
+`git clone https://github.com/meyerhoferc/violet_teacher.git`
+`bundle install`
 
-Things you may want to cover:
+### To play in the application
 
-* Ruby version
+`rake db:create db:migrate db:seed`
 
-* System dependencies
+`rails s`
 
-* Configuration
+In your browser: `127.0.0.1:3000`
 
-* Database creation
+#### A default teacher login:
 
-* Database initialization
+* username: root
+* password: toor
 
-* How to run the test suite
+#### A default student login:
+* username: root
+* password: toor
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### To run the test suite
+`rake db:test:prepare`
+`rspec`
